@@ -6,15 +6,15 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
-                docker build -t node-k8s-local:latest .
+                docker build -t node-k8s-local:${BUILD_NUMBER}.
                 '''
             }
         }
  
-         stage('Testing') {
+         stage('install npm') {
             steps {
                 sh '''
-               npm test
+               npm install
                 '''
             }
         }
@@ -31,7 +31,7 @@ pipeline {
             steps {
                 sh '''
                 # Load latest local docker image into Minikube
-                minikube image load node-k8s-local:latest
+                minikube image load node-k8s-local:${BUILD_NUMBER}
 
                 # Apply manifests
                 minikube kubectl -- apply -f k8s/deployment.yaml
