@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: node-k8s-local
-        image: node-k8s-local:latest  # your Docker image
+        image: node-k8s-local:${BUILD_NUMBER}  # your Docker image
         imagePullPolicy: Never
         ports:
         - containerPort: 8000
