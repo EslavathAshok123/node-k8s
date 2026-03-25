@@ -6,7 +6,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
-                docker build -t node-k8s-local:${BUILD_NUMBER}.
+                docker build -t node-k8s-local:${BUILD_NUMBER} .
                 '''
             }
         }
