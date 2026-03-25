@@ -37,7 +37,7 @@ pipeline {
                 minikube kubectl -- apply -f k8s/deployment.yaml
                 minikube kubectl -- apply -f k8s/service.yaml
                 # Start the Service
-                minikube service node-k8s-local-service
+                minikube service node-k8s-local-service01
                 '''
             }
         }
