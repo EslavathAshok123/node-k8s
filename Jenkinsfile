@@ -31,6 +31,7 @@ pipeline {
             steps {
                 sh '''
                 # Load latest local docker image into Minikube
+                minikube kubectl -- rollout restart deployment node-k8s-local-deployment01
                 minikube image load node-k8s-local:${BUILD_NUMBER}
 
                 # Apply manifests
